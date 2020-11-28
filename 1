@@ -1,0 +1,59 @@
+#include <iostream>
+#include <ctime>
+
+void shift(const int n,const int k)
+{
+   int *N = new int[n];
+   for (int i = 0; i < n; ++i) {
+       N[i] = i;
+   }
+    int t = 0;
+    do {
+        int tmp;
+        for (int i = 0; i <= n - 1; ++i) {
+            if (N[t] < N[i]) {
+                tmp = N[t]; N[t] = N[i]; N[i] = tmp;
+            }
+
+        }
+        ++t;
+    } while (t <= n - 1);
+
+
+
+    for (int i = 0; i <= n - 1; i++) std::cout << N[i] << ' ';
+
+    std::cout << std::endl;
+
+    if (k >= 0) {
+        for (int o = 0; o < k; o++) {
+            for (int i = n - 1; i >= 1; --i)
+            {
+                int t;
+                t = N[i - 1]; N[i - 1] = N[i]; N[i] = t;
+            }
+        }
+    }
+    else if (k < 0) {
+        for (int o = n; o > k - 1; o--) {
+            for (int i = 0; i < n - 1; ++i)
+            {
+                int t;
+                t = N[i]; N[i] = N[i + 1]; N[i + 1] = t;
+            }
+
+
+        }
+    }
+
+
+    for (int i = 0; i <= n - 1; ++i)
+    {
+        std::cout << N[i] << ' ';
+    }
+}
+
+int main() {
+    shift(10, 3);
+
+}
