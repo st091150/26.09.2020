@@ -1,13 +1,6 @@
 #include <iostream>
-void snake() {
-    int n;
-    std::cout << "Input n :";
-    std::cin >> n;
-    int** M;
-    M = new int* [n];
-    for (int i = 0; i < n; ++i) {
-        M[i] = new int[n];
-    }
+void snake(int** M,int n) {
+
     int k = 1, x = -1, y = 1;
 
     while (k < n * n) {
@@ -51,6 +44,14 @@ void snake() {
         std::cout << std::endl;
     }
 }
-int main (){
-    snake();
+int main() {
+    int n;
+    std::cout << "Input n :";
+    std::cin >> n;
+    int** M;
+    M = new int* [n];
+    for (int i = 0; i < n; ++i) {
+        M[i] = new int[n];
+    }
+    snake(M,n);
 }
