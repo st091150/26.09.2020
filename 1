@@ -1,12 +1,8 @@
 #include <iostream>
-#include <ctime>
 
-void shift(const int n,const int k)
+void shift( int N [],const int n, const int k)
 {
-   int *N = new int[n];
-   for (int i = 0; i < n; ++i) {
-       N[i] = i;
-   }
+
 
     for (int i = 0; i <= n - 1; i++) std::cout << N[i] << ' ';
 
@@ -41,6 +37,10 @@ void shift(const int n,const int k)
 }
 
 int main() {
-    shift(10, 3);
+    int N[10];
+    for (int i = 0; i < 10; ++i) {
+        N[i] = i;
+    }
+    shift(N,10, 3);
 
 }
